@@ -1,0 +1,31 @@
+<%= link_to "Back to Index", blogs_path %>
+<br/>
+<br/>
+<h2><%= @blog.title %></h2>
+<%= @blog.content %>
+<h3>Comments (<%= @blog.comments.size %>)</h3>
+<% form_tag "/comments/create" do %>
+  <table>
+    <tr>
+      <td>Author:</td>
+      <td><%= text_field_tag "author" %></td>
+    </tr>
+    <tr>
+      <td>Comment:</td>
+      <td><%= text_area_tag "message" %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= submit_tag "Create!" %></td>
+  </table>
+  <%= hidden_field_tag "blog_id", @blog.id %>
+<% end -%>
+
+<table>
+  <% @blog.comments.each do |comment| %>
+    <tr>
+      <td><%= comment.author %></td>
+      <td><%= comment.message %></td>
+    </tr>
+  <% end -%>
+</table>

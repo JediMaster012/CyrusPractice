@@ -1,0 +1,16 @@
+<% form_for @blog do |f| %>
+  <table>
+    <tr>
+      <td>Title:</td>
+      <td><%= f.text_field "title" %></td>
+    </tr>
+    <tr>
+      <td>Content:</td>
+      <td><%= f.text_area "content" %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= submit_tag "Create!" %></td>
+  </table>
+      
+<%end%>

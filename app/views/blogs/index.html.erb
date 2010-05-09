@@ -1,0 +1,9 @@
+Hello - You have <%= @blogs.size %> blogs!
+<%= link_to "New Blog", new_blog_path %>
+<%- @blogs.each do |blog| %>
+  <p>
+    <h3><%= link_to blog.title, blog_path(blog) %> - <%= link_to "Edit", edit_blog_path(blog)%>, <%= link_to "Delete", blog_path(blog), :method => "delete" %></h3>
+  </p>
+  </br>
+  </br>
+<% end -%>
